@@ -1,0 +1,65 @@
+---
+---
+
+@import "{{ site.theme }}";
+@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
+body {
+  font-family: 'Fira Code', monospace; 
+  color: #fff;
+  background-color: #111;
+}
+
+a {
+  color: #2a7ae2;
+  text-decoration: none; 
+}
+
+a:hover { color: yellow; text-decoration: none; }
+.social-media-list a:hover { text-decoration: none; }
+.social-media-list a:hover .username { text-decoration: none; }
+.page-link a:hover { color: yellow; }
+
+.site-header {
+  border-top: 0px;		
+  border-bottom: 0px;
+}
+
+.site-title { font-size: 16px; }
+
+.site-title, .site-title:visited { color: red; }
+
+.site-nav .page-link { color: lime; }
+
+.site-footer { border-top: 0px; }
+
+.footer-heading { font-size:16px; letter-spacing: -1px; }
+
+.post-list-heading { font-size: 16px; }
+
+.post-link { font-size: 16px; }
+
+.post-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .site-nav 
+  {
+    background-color: #111;
+    border: 1px solid #777;
+  }
+  .site-nav .menu-icon > svg { fill: #777; }
+}
+
+.footer-col-1 {
+  width: -webkit-calc(50% - (30px / 2));
+  width: calc(50% - (30px / 2)); 
+}
+
+.footer-col-2 {
+  width: -webkit-calc(50% - (30px / 2));
+  width: calc(50% - (30px / 2)); 
+  text-align: right;
+}
+
