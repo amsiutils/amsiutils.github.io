@@ -20,6 +20,7 @@ a:hover { color: yellow; text-decoration: none; }
 .page-link a:hover { color: yellow; }
 
 .site-header {
+  margin-top: 30px;
   border-top: 0px;		
   border-bottom: 0px;
 }
@@ -57,9 +58,19 @@ a:hover { color: yellow; text-decoration: none; }
   width: calc(50% - (30px / 2)); 
 }
 
-.footer-col-2 {
-  width: -webkit-calc(50% - (30px / 2));
-  width: calc(50% - (30px / 2)); 
-  text-align: right;
+.post-list-heading { display: none; }
+.rss-subscribe { display: none; }
+.footer-heading { display: none; }
+
+pre, code {
+  border-radius: 0px;
+  border: 0px solid;
+  background-color: #333; 
+}
+
+.highlighter-rouge .highlight { background-color: #333; }
+
+.post-meta {
+  color: #ddd; 
 }
 
