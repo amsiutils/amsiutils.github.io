@@ -6,6 +6,7 @@
 body {
   font-family: 'Fira Code', monospace; 
   color: #fff;
+  font-size: 14px;
   background-color: #111;
 }
 
@@ -25,7 +26,7 @@ a:hover { color: yellow; text-decoration: none; }
   border-bottom: 0px;
 }
 
-.site-title { font-size: 16px; }
+.site-title { font-size: 14px; }
 
 .site-title, .site-title:visited { color: red; }
 
@@ -33,14 +34,14 @@ a:hover { color: yellow; text-decoration: none; }
 
 .site-footer { border-top: 0px; }
 
-.footer-heading { font-size:16px; letter-spacing: -1px; }
+.footer-heading { font-size:14px; letter-spacing: -1px; }
 
-.post-list-heading { font-size: 16px; }
+.post-list-heading { font-size: 14px; }
 
-.post-link { font-size: 16px; }
+.post-link { font-size: 14px; }
 
 .post-title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 
