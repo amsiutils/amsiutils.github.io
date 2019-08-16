@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Encrypting and Decrypting AES256 Strings in C#"
-date:   2019-08-07 21:06:35 -0400
+date:   2019-08-16 00:00:00 -0400
 categories: 
 ---
 To Encrypt
