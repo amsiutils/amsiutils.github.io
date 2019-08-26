@@ -7,18 +7,16 @@ body {
   font-family: 'Fira Code', monospace; 
   color: #fff;
   font-size: 14px;
-  background-color: #111;
+  background-color: #222;
 }
 
-a {
-  color: #fff;
-  text-decoration: none; 
-}
+h1 { color: aqua; }
+h4 { color: greenyellow; }
 
-a:hover { color: yellow; text-decoration: none; }
+a:hover { color: cyan; text-decoration: none; }
 .social-media-list a:hover { text-decoration: none; }
 .social-media-list a:hover .username { text-decoration: none; }
-.page-link a:hover { color: yellow; }
+.page-link a:hover { color: cyan; }
 
 .site-header {
   margin-top: 30px;
@@ -75,5 +73,11 @@ pre, code {
   color: #ddd; 
 }
 
-a:visited { color: #fff; }
+.username { color: fuchsia; }
+
+a:visited { color: yellow; }
+a {
+  color: yellow;
+  text-decoration: none; 
+}
 
