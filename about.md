@@ -4,4 +4,6 @@ title: About
 permalink: /about/
 ---
 
-Nothing here.
+Nothing to see here.
+
+![Move Along](/assets/movealong.gif)

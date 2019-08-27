@@ -34,6 +34,14 @@ Mailboxes may be delegated to unauthorized parties, who may be able to send emai
 Get-Mailbox | where {$_.GrantSendOnBehalfTo -ne $null} | select Name,Alias,UserPrincipalName,PrimarySmtpAddress,@{l='SendOnBehalfOf';e={$_.GrantSendOnBehalfTo -join ";"}} 
 ```
 
+#### Application Impersonation
+
+Having the "ApplicationImpersonation" role allows the particular user or group to search through other mailboxes. Verify that only authorized users or built-in groups have this permission.
+
+```
+Get-ManagementRoleAssignment | Where-Object {$_.Role -eq 'ApplicationImpersonation'}
+```
+
 #### Admin Audit Log
 
 Unauthorized Administrator activities may not be logged. Ascertain that Admin Audit Log is enabled and logging all cmdlets.
@@ -64,7 +72,7 @@ Search-AdminAuditLog | Select RunspaceID,CmdletName,RunDate,Succeeded
 Exchange administrators may have previously granted permissions to themselves to send unauthorized email on behalf of others accounts. Verify that all exchange administrators are not able to impersonate sending emails on behalf of other accounts.
 
 ```
-Get-User <ADID> | Get-ADPermission | where {$_.ExtendedRights -like 'Send*'} | Format-Table -Auto User,Deny,ExtendedRights
+Get-Mailbox | Get-User | Get-ADPermission | where {$_.user.tostring() -ne "NT AUTHORITY\SELF" -and $_.ExtendedRights -like 'Send*'} | Select Identity,User,Deny,ExtendedRights 
 ```
 
 #### Full Access to Mailboxes
@@ -72,14 +80,7 @@ Get-User <ADID> | Get-ADPermission | where {$_.ExtendedRights -like 'Send*'} | F
 Exchange administrators may previously granted full access to other mailboxes, and could read emails. Verify that all exchange administrators do not have full access to any other mailboxes.
 
 ```
-Get-Mailbox | Get-MailboxPermission -user <ADID> | where {$_.user.tostring() -ne "NT AUTHORITY\SELF" -and $_.IsInherited -eq $false} | Select identity,user
+Get-Mailbox | Get-MailboxPermission | where {$_.user.tostring() -ne "NT AUTHORITY\SELF" -and $_.IsInherited -eq $false} | Select Identity,User,@{Name='Access Rights';Expression={[string]::join(', ', $_.AccessRights)}} 
 ```
-
-
-
-
-
-
-
 
 [non-owner-report]: https://docs.microsoft.com/en-us/exchange/security-and-compliance/exchange-auditing-reports/non-owner-mailbox-access-report
