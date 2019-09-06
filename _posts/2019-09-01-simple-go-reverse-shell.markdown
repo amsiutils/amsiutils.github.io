@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Simple Go Reverse Shell"
-date:   2019-08-30 00:00:00 -0400
+date:   2019-09-01 00:00:00 -0400
 categories: 
 ---
 
