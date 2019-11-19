@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: ScriptContainsMaliciousContent
 email: 
-description: Just another infosec blog.
+description: Just a blog.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://amsiutils.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: amsiutils
