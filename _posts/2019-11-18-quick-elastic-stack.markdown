@@ -30,13 +30,14 @@ openssl req -config /etc/ssl/openssl.cnf -x509 -days 3650 -batch -nodes -newkey 
 
 ```
 nano /etc/nginx/sites-available/default
+echo "kibadmin:`openssl passwd -apr1`" | sudo tee -a /etc/nginx/htpasswd.users
 ```
 
 #### Start Services
 
 ```
 systemctl start ssh
-systemctl start nginx
+systemctl restart nginx
 systemctl enable nginx
 systemctl start elasticsearch.service
 systemctl enable elasticsearch.service
