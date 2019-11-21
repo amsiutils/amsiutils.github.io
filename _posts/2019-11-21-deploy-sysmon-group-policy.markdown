@@ -25,7 +25,7 @@ SET SYSMONCONFIG=%SYSMONDIR%\sysmonconfig-export.xml
 SET GLBSYSMONCONFIG=\\%DC%\sysvol\%FQDN%\sysmon\sysmonconfig-export.xml
 ```
 
-#### Copy files to sysmon folder in SYSVOL
+#### Create sysmon folder in SYSVOL and copy files
 
 ```
 C:\>dir /b \\dc.internal.local\sysvol\internal.local\sysmon

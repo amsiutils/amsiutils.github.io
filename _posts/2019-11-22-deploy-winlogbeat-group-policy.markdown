@@ -5,7 +5,9 @@ date:   2019-11-21 00:00:00 -0400
 categories: 
 ---
 
-This guide assumes that the previous [ELK / Elastic stack set up][elk-post] was installed and configured successfully and that [Sysmon][sysmon-post] and [PowerShell script logging][powershell-post] has been enabled via GPO on all endpoints.
+This guide will configure Winlogbeat to pipe sysmon and powershell loging to logstash, and deploy as a service for all endpoints.
+
+It assumes that the previous [ELK / Elastic stack set up][elk-post] was installed and configured successfully and that [Sysmon][sysmon-post] and [PowerShell script logging][powershell-post] has been enabled via GPO on all endpoints.
 
 #### Download
 
@@ -15,35 +17,50 @@ This guide assumes that the previous [ELK / Elastic stack set up][elk-post] was 
 
 [GPO Powershell Script][winlogbeat-ps]
 
+Copy `logstash-forwarder.crt` from your ELK instance with [pscp][pscp-link].
+
+```
+pscp.exe <username>@<ELK IP>:/etc/pki/tls/certs/logstash-forwarder.crt .
+```
+
+#### Create winlogbeat folder in SYSVOL and copy files
+
+```
+C:\>dir /b \\dc.internal.local\sysvol\internal.local\winlogbeat
+install.ps1
+logstash-forwarder.crt
+winlogbeat-7.4.2-windows-x86_64.zip
+winlogbeat.yml
+```
 
 #### Configure
 
-Edit sysmon.bat and modify as required
+`winlogbeat.yml` has been already been configured to pipe sysmon and powershell logging to logstash.
+
+Point `winlogbeat.yml` to your logstash host / IP
 
 ```
-SET DC=dc.internal.local
-SET FQDN=internal.local
-SET SYSMONCONFIG=%SYSMONDIR%\sysmonconfig-export.xml
-SET GLBSYSMONCONFIG=\\%DC%\sysvol\%FQDN%\sysmon\sysmonconfig-export.xml
+output.logstash:
+  # The Logstash hosts
+  hosts: ["<ELK IP>:5044"]
 ```
 
-#### Copy files to sysmon folder in SYSVOL
+Modify `install.ps1` as required
 
 ```
-C:\>dir /b \\dc.internal.local\sysvol\internal.local\sysmon
-sysmon.bat
-Sysmon.exe
-Sysmon64.exe
-sysmonconfig-export.xml
+$source = '\\dc.internal.local\sysvol\internal.local\winlogbeat\winlogbeat-7.4.2-windows-x86_64.zip'
+$cert = '\\dc.internal.local\sysvol\internal.local\winlogbeat\logstash-forwarder.crt'
+$config = '\\dc.internal.local\sysvol\internal.local\winlogbeat\winlogbeat.yml'
 ```
 
-#### Create and link a Deploy Sysmon GPO
+#### Create and link a Deploy Winlogbeat GPO
 
-![GPO Deploy Sysmon](/assets/sysmon.png)
+![GPO Deploy Winlogbeat](/assets/winlogbeat.png)
 
 [winlogbeat-link]: https://www.elastic.co/downloads/beats/winlogbeat
 [elk-post]: https://amsiutils.github.io/2019/11/18/quick-elastic-stack.html
 [sysmon-post]: https://amsiutils.github.io/2019/11/21/deploy-sysmon-group-policy.html
 [powershell-post]: https://amsiutils.github.io/2019/11/20/enable-powershell-logging-policy.html
-[winlogbeat-config]: 
-[winlogbeat-ps]: 
+[winlogbeat-config]: https://raw.githubusercontent.com/amsiutils/winlogbeat/master/winlogbeat.yml
+[winlogbeat-ps]: https://raw.githubusercontent.com/amsiutils/winlogbeat/master/install.ps1
+[pscp-link]: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
