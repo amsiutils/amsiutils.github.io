@@ -26,10 +26,15 @@ cd /etc/pki/tls
 openssl req -config /etc/ssl/openssl.cnf -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout private/logstash-forwarder.key -out certs/logstash-forwarder.crt
 ```
 
-#### Configure IP
+#### Configure IP for Nginz
 
 ```
 nano /etc/nginx/sites-available/default
+```
+
+#### Configure Kibana Admin Account
+
+```
 echo "kibadmin:`openssl passwd -apr1`" | sudo tee -a /etc/nginx/htpasswd.users
 ```
 
