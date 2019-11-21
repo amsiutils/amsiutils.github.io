@@ -5,7 +5,7 @@ date:   2019-11-22 00:00:00 -0400
 categories: 
 ---
 
-This guide will configure Winlogbeat to pipe sysmon and powershell loging to logstash, and deploy as a service for all endpoints.
+This guide will configure Winlogbeat to pipe sysmon and powershell loging to logstash, and deploy itself as a service for all endpoints.
 
 It assumes that the previous [ELK / Elastic stack set up][elk-post] was installed and configured successfully and that [Sysmon][sysmon-post] and [PowerShell script logging][powershell-post] has been enabled via GPO on all endpoints.
 
