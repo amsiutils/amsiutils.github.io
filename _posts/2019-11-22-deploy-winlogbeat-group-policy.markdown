@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Deploy Winlogbeat Using Group Policy (GPO)"
-date:   2019-11-21 00:00:00 -0400
+date:   2019-11-22 00:00:00 -0400
 categories: 
 ---
 
