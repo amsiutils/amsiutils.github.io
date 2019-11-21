@@ -37,7 +37,7 @@ sysmonconfig-export.xml
 
 #### Create and link a Deploy Sysmon GPO
 
-![GPO Deploy Sysmon](/assets/deploy_sysmon.png)
+![GPO Deploy Sysmon](/assets/deploy-sysmon.png)
 
 
 [sysmon-link]: https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
