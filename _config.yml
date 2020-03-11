@@ -18,8 +18,8 @@ email:
 description: Just a blog.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://amsiutils.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: amsiutils
-github_username:  amsiutils
+twitter_username: TVqQAAMA
+github_username:  TVqQAAMA
 
 # Build settings
 markdown: kramdown
@@ -44,4 +44,4 @@ plugins:
 disqus:
     # Leave shortname blank to disable comments site-wide.
     # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    shortname: amsiutils
+    shortname: TVqQAAMA
