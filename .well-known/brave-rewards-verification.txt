@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: tvqqaama.github.io
-Token: c1c90174b4e8f31da34804102a69372249d3317788c9724fc6d0cfc6f404c466
