@@ -5,6 +5,4 @@ date:   2020-04-13 00:00:00 -0400
 categories: 
 ---
 
-Nothing to see here.
-
 ![Move Along](/assets/offencedefence.png)
