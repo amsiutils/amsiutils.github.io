@@ -24,7 +24,8 @@ a:hover { color: cyan; text-decoration: underline; }
   border-bottom: 0px;
 }
 
-table th {}
+table th { background-color: #222; color: #fff; }
+table td { background-color: #222; color: #fff; }
 
 .site-title { font-size: 14px; }
 
